@@ -98,49 +98,8 @@ The target outcome is that any low-quality response can be traced back to the ex
 
 ## Existing RAG Application as the Baseline
 
-```text
-Documents
-   │
-   ▼
-Parser
-PDF / Markdown / HTML / Text
-   │
-   ▼
-Intelligent Chunker
-500–800 tokens / ~100 overlap
-   │
-   ▼
-Embeddings
-OpenAI / Azure OpenAI / SentenceTransformers
-   │
-   ├───────────────┐
-   ▼               ▼
-ChromaDB        BM25
-Vector Search   Keyword Search
-   │               │
-   └───────┬───────┘
-           ▼
-     Hybrid Retrieval
-     RRF / Weighted Fusion
-           │
-           ▼
- Cross-Encoder Re-ranker
-           │
-           ▼
-      Prompt Builder
-           │
-           ▼
-           LLM
-           │
-           ▼
- Citation / Refusal Validator
-           │
-           ▼
-      Final Response
-           │
-           ▼
-    Evaluation / CI Gate
-```
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/352f6e80-7fec-4a81-b9ed-88c8dcf7edae" />
+
 
 The observability layer should wrap every stage of this flow.
 
@@ -150,29 +109,8 @@ The observability layer should wrap every stage of this flow.
 
 Traditional telemetry and AI-specific telemetry should complement each other.
 
-```text
-FastAPI / RAG Application
-        │
-        ├────────► OpenTelemetry
-        │              │
-        │              ├── Jaeger
-        │              ├── Azure Monitor / APM
-        │              └── Infrastructure traces
-        │
-        ├────────► Prometheus
-        │              │
-        │              └── Grafana dashboards
-        │
-        └────────► Langfuse
-                       │
-                       ├── Retrieval traces
-                       ├── Re-ranking traces
-                       ├── Prompt versions
-                       ├── LLM generations
-                       ├── Token usage
-                       ├── Cost
-                       └── Evaluation scores
-```
+<img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/eb7c57aa-1b82-4370-b9dd-bda1a6ee5234" />
+
 
 OpenTelemetry answers questions such as *which dependency was slow?* Langfuse answers questions such as *which chunks were retrieved and what prompt produced this answer?*
 
@@ -905,55 +843,8 @@ The repository describes both GitHub Actions and Azure DevOps pipelines.
 
 Use the following delivery flow:
 
-```text
-Pull Request
-    │
-    ▼
-Restore Dependencies
-    │
-    ▼
-Lint / Static Analysis
-    │
-    ▼
-Unit Tests
-    │
-    ▼
-Integration Tests
-    │
-    ▼
-Start Test RAG Stack
-    │
-    ▼
-Load Evaluation Documents
-    │
-    ▼
-Run Golden Dataset
-    │
-    ▼
-Calculate RAG Metrics
-    │
-    ▼
-Run Quality Gate --strict
-    │
-    ├── FAIL → Publish report → Block merge/build
-    │
-    └── PASS
-          │
-          ▼
-    Build Docker Image
-          │
-          ▼
-      Security Scan
-          │
-          ▼
-       Push to ACR
-          │
-          ▼
-     Deploy to ACA / AKS
-          │
-          ▼
-       Smoke Test
-```
+<img width="1122" height="1402" alt="image" src="https://github.com/user-attachments/assets/26112d59-2f94-4c45-9058-7b1763525554" />
+
 
 The application description already defines a strict quality gate command conceptually as:
 
@@ -1001,18 +892,8 @@ This makes AI evaluation an engineering control rather than a manual notebook ac
 
 The described application already includes a RAG API, Prometheus and Jaeger. Project 3 can extend the local stack to:
 
-```text
-Docker Compose
-│
-├── rag-api
-├── chromadb
-├── postgres
-├── langfuse
-├── prometheus
-├── grafana
-├── jaeger
-└── otel-collector
-```
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/54b58200-4cb8-4bf2-ba20-6873c9f2c139" />
+
 
 Data flow:
 
