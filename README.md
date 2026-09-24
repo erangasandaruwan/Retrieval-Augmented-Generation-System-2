@@ -77,77 +77,8 @@ The project will extend the existing RAG platform with three major capabilities:
 
 # High-Level Architecture
 
-```text
-User
- │
- ▼
-Frontend
-React / Angular
- │
- ▼
-ASP.NET Core / FastAPI API
- │
- ▼
-RAG Orchestrator
-LangGraph / Custom Pipeline
- │
- ├─────────────── Observability / Tracing
- │                 │
- │                 ▼
- │           Langfuse / LangSmith
- │           Braintrust
- │
- ▼
-Query Processing
- │
- ▼
-Hybrid Retrieval
-BM25 + Vector Search
- │
- ▼
-Cross-Encoder Re-ranker
- │
- ▼
-Prompt Builder
- │
- ▼
-LLM
-Azure OpenAI / OpenAI / Local Model
- │
- ▼
-Citation Validation
- │
- ▼
-Final Response
- │
- ├──────────────► Metrics
- │                 │
- │                 ├── P50 Latency
- │                 ├── P95 Latency
- │                 ├── Cost per Request
- │                 ├── Token Usage
- │                 ├── Citation Coverage
- │                 ├── Failure Rate
- │                 └── Quality Metrics
- │
- ▼
-Monitoring Dashboard
+<img width="1055" height="1491" alt="image" src="https://github.com/user-attachments/assets/eb68e24a-da3b-4ddc-88b5-7566d74bb0ba" />
 
-CI/CD Pipeline
- │
- ▼
-Golden Evaluation Dataset
- │
- ▼
-RAGAS / Custom Evaluation
- │
- ▼
-Quality Threshold Gate
- │
- ├── PASS → Deploy / Merge
- │
- └── FAIL → Block Build / Pull Request
-```
 
 ---
 
