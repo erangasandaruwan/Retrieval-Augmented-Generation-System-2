@@ -1,4 +1,4 @@
-# Project 3 — Production RAG Monitoring, Observability & Regression Gating
+RAG - Monitoring, Observability & Regression Gating
 
 ## Project Overview
 
