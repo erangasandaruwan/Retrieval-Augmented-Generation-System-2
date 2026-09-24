@@ -1104,9 +1104,9 @@ Every real defect should eventually become a Golden Dataset case, just as a trad
 
 ---
 
-## How Project 1 and Project 3 Fit Together
+## How the RAG system and these new changes for Observability and monitoring fit together ?
 
-### Project 1 — Build the RAG System
+### Step 1 - Build the initial RAG System
 
 Demonstrates:
 
@@ -1124,7 +1124,7 @@ Golden evaluation dataset
 CI/CD quality gate
 ```
 
-### Project 3 — Operate the RAG System
+### Step 2 — Implement Observability and monitoring on the RAG System
 
 Demonstrates:
 
@@ -1336,33 +1336,15 @@ For this project, **Langfuse** is a strong option because it is open source and 
 
 Example deployment options:
 
-```text
-Docker
- │
- ▼
-Langfuse
- │
- ├── PostgreSQL
- └── Observability Dashboard
-```
+<img width="1122" height="1402" alt="image" src="https://github.com/user-attachments/assets/f870a136-2875-415d-a310-ad4181c8300f" />
+
 
 It can also be deployed into Kubernetes.
 
 Example:
 
-```text
-AKS / Kubernetes
- │
- ├── RAG API
- │
- ├── LangGraph Service
- │
- ├── Langfuse
- │
- ├── PostgreSQL
- │
- └── OpenTelemetry Collector
-```
+<img width="1122" height="1402" alt="image" src="https://github.com/user-attachments/assets/51e58a9c-7fc4-4509-b9c6-769bffc2657f" />
+
 
 ---
 
@@ -1775,37 +1757,8 @@ The pull request should not be merged until the regression is fixed or intention
 
 Example pipeline:
 
-```text
-Developer
- │
- ▼
-Pull Request
- │
- ▼
-Build Application
- │
- ▼
-Run Unit Tests
- │
- ▼
-Deploy Test RAG Environment
- │
- ▼
-Run Golden Dataset
- │
- ▼
-RAGAS Evaluation
- │
- ▼
-Quality Gate
- │
- ├──────── PASS ────────► Build Docker Image
- │                         │
- │                         ▼
- │                       Deploy
- │
- └──────── FAIL ────────► Block Pull Request
-```
+<img width="1122" height="1402" alt="image" src="https://github.com/user-attachments/assets/acc31014-60d3-4ba7-8647-1d07c670a8ee" />
+
 
 Possible platforms:
 
@@ -1900,25 +1853,8 @@ For enterprise-level observability, OpenTelemetry can be added to the platform.
 
 Architecture:
 
-```text
-RAG Application
- │
- ▼
-OpenTelemetry SDK
- │
- ▼
-OpenTelemetry Collector
- │
- ├── Datadog
- │
- ├── Azure Monitor
- │
- ├── Jaeger
- │
- ├── Grafana
- │
- └── Langfuse
-```
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/2ba2e24e-fb0d-4a2f-bfe0-d4e909605a77" />
+
 
 This allows both traditional application observability and AI-specific tracing.
 
@@ -2144,22 +2080,7 @@ The CI/CD pipeline should automatically run the evaluation suite.
 
 Example:
 
-```text
-Pull Request
- │
- ▼
-Run Golden Dataset
- │
- ▼
-Evaluate RAG
- │
- ▼
-Check Thresholds
- │
- ├── PASS → Merge
- │
- └── FAIL → Block
-```
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/aeca744b-0e03-4c2e-b2ed-576505868712" />
 
 ---
 
@@ -2277,9 +2198,8 @@ This project demonstrates experience with:
 
 ---
 
-# Resume / CV Project Description
 
-## Production RAG Observability & Evaluation Platform
+## Key Points on Production RAG Observability & Evaluation Platform
 
 Designed and implemented an observability and regression-testing platform for a production-grade Retrieval-Augmented Generation system.
 
