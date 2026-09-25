@@ -8,7 +8,7 @@ Most AI projects discontinue once the Retrieval-Augmented Generation (RAG) appli
 
 This project goes further.
 
-The objective is to take the production-grade RAG application built in **Project 1** and add a complete **monitoring, observability, quality tracking, and regression-gating layer** around it.
+The objective is to take the RAG application built in **Retrieval-Augmented-Generation-System** and add a complete **monitoring, observability, quality tracking, and regression-gating layer** around it.
 
 The goal is to demonstrate that the system is not only functional, but also:
 
