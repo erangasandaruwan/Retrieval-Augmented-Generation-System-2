@@ -4,7 +4,7 @@
 
 > **Application baseline:** This project extends the architecture described in `https://github.com/erangasandaruwan/Retrieval-Augmented-Generation-System` and its `SOLUTION_OVERVIEW.md`.
 
-Most AI portfolio projects stop once the Retrieval-Augmented Generation (RAG) application can answer questions.
+Most AI projects discontinue once the Retrieval-Augmented Generation (RAG) application can answer questions.
 
 This project goes further.
 
